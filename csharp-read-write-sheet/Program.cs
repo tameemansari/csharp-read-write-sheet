@@ -30,9 +30,17 @@ namespace csharp_read_write_sheet
             SmartsheetClient smartsheet = new SmartsheetBuilder().SetAccessToken(accessToken).Build();
 
             Sheet sheet = smartsheet.SheetResources.ImportXlsSheet("../../../Sample Sheet.xlsx", null, 0, null);
+            var x = smartsheet.SheetResources.ListSheets(new List<SheetInclusion>() { SheetInclusion.OWNER_INFO }, new PaginationParameters(true, 50, 1));
+            foreach(Sheet s1 in x.Data)
+            {
+                Console.WriteLine($"Sheet Id - {s1.Id}");
+                Console.WriteLine($"Sheet publish info:{smartsheet.SheetResources.GetPublishStatus(s1.Id.Value).ReadWriteUrl}");
+            }
             
             // Load the entire sheet
             sheet = smartsheet.SheetResources.GetSheet(sheet.Id.Value, null, null, null, null, null, null, null);
+            
+            Console.WriteLine("AAAAAA " + smartsheet.SheetResources.GetPublishStatus(sheet.Id.Value).ReadWriteUrl);
             Console.WriteLine("Loaded " + sheet.Rows.Count + " rows from sheet: " + sheet.Name);
 
             // Build column map for later reference

@@ -18,3 +18,8 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+/.vs/csharp-read-write-sheet/v16/Server/sqlite3/storage.ide-wal
+/.vs/csharp-read-write-sheet/v16/Server/sqlite3/storage.ide-shm
+/.vs/csharp-read-write-sheet/v16/Server/sqlite3/storage.ide
+/.vs/csharp-read-write-sheet/v16/Server/sqlite3/db.lock
+/.vs/slnx.sqlite
